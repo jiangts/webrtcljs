@@ -8,49 +8,32 @@ FIXME: Write a paragraph about the library/project and highlight its goals.
 
 ## Setup
 
-Build your project once in dev mode with the following script and then open `index.html` in your browser.
+To get an interactive development environment run:
 
-    ./scripts/build
+    lein figwheel
 
-To auto build your project in dev mode:
+and open your browser at [localhost:3449](http://localhost:3449/).
+This will auto compile and send all changes to the browser without the
+need to reload. After the compilation process is complete, you will
+get a Browser Connected REPL. An easy way to try it is:
 
-    ./script/watch
+    (js/alert "Am I connected?")
 
-To start an auto-building Node REPL (requires
-[rlwrap](http://utopia.knoware.nl/~hlub/uck/rlwrap/), on OS X
-installable via brew):
+and you should see an alert in the browser window.
 
-    ./scripts/repl
-
-To get source map support in the Node REPL:
-
-    lein npm install
-    
-To start a browser REPL:
-    
-1. Uncomment the following lines in src/rtc/core.cljs:
-```clojure
-;; (defonce conn
-;;   (repl/connect "http://localhost:9000/repl"))
-```
-2. Run `./scripts/brepl`
-3. Browse to `http://localhost:9000` (you should see `Hello world!` in the web console)
-4. (back to step 3) you should now see the REPL prompt: `cljs.user=>`
-5. You may now evaluate ClojureScript statements in the browser context.
-    
-For more info using the browser as a REPL environment, see
-[this](https://github.com/clojure/clojurescript/wiki/The-REPL-and-Evaluation-Environments#browser-as-evaluation-environment).
-    
-Clean project specific out:
+To clean all compiled files:
 
     lein clean
-     
-Build a single release artifact with the following script and then open `index_release.html` in your browser.
 
-    ./scripts/release
+To create a production build run:
+
+    lein cljsbuild once min
+
+And open your browser in `resources/public/index.html`. You will not
+get live reloading, nor a REPL. 
 
 ## License
 
-Copyright © 2015 FIXME
+Copyright © 2014 FIXME
 
 Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
