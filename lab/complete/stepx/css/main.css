@@ -1,0 +1,25 @@
+.camera {
+    width: 320px;
+    min-height: 240px;
+    float: left;
+    margin: 0 20px 25px 0;
+    border: 1px solid #aaa;
+}
+
+.incoming {
+    clear: both;
+    padding-top: 0.7em;
+    border-top: 0.1em solid #ccc;
+}
+
+.incoming h2 {
+    margin: 0 0 0.3em 0;
+}
+
+.photo {
+    display: inline-block; 
+    margin: 1em; 
+    width: 200px; 
+    height: 150px; 
+    border: 1px solid #ccc;
+}
