@@ -1,39 +1,30 @@
 # rtc
 
-FIXME: Write a one-line description of your library/project.
+A [re-frame](https://github.com/Day8/re-frame) application designed to ... well, that part is up to you.
 
-## Overview
+## Development Mode
 
-FIXME: Write a paragraph about the library/project and highlight its goals.
+### Run application:
 
-## Setup
+```
+lein clean
+lein figwheel dev
+```
 
-To get an interactive development environment run:
+Figwheel will automatically push cljs changes to the browser.
 
-    lein figwheel
+Wait a bit, then browse to [http://localhost:3449](http://localhost:3449).
 
-and open your browser at [localhost:3449](http://localhost:3449/).
-This will auto compile and send all changes to the browser without the
-need to reload. After the compilation process is complete, you will
-get a Browser Connected REPL. An easy way to try it is:
+### Run tests:
 
-    (js/alert "Am I connected?")
+```
+lein clean
+lein cljsbuild auto test
+```
 
-and you should see an alert in the browser window.
+## Production Build
 
-To clean all compiled files:
-
-    lein clean
-
-To create a production build run:
-
-    lein cljsbuild once min
-
-And open your browser in `resources/public/index.html`. You will not
-get live reloading, nor a REPL. 
-
-## License
-
-Copyright © 2014 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
+```
+lein clean
+lein cljsbuild once min
+```

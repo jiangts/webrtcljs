@@ -1,0 +1,2 @@
+;; Analyzed by ClojureScript 1.7.122
+{:name rtc.signaling, :doc nil, :excludes #{}, :use-macros {go cljs.core.async.macros, alt! cljs.core.async.macros}, :require-macros {cljs.core.async.macros cljs.core.async.macros}, :uses {<! cljs.core.async, chan cljs.core.async, >! cljs.core.async, put! cljs.core.async}, :requires {async cljs.core.async, cljs.core.async cljs.core.async}, :imports nil}
