@@ -1,13 +1,14 @@
 (ns rtc.core
     (:require [reagent.core :as reagent]
               [re-frame.core :as re-frame]
-              [rtc.handlers]
-              [rtc.subs]
+              [rtc.data.handlers]
+              [rtc.data.subs]
               [rtc.routes :as routes]
-              [rtc.views :as views]))
+              [rtc.view.core :as view-core]
+              [rtc.config :as cfg]))
 
 (defn mount-root []
-  (reagent/render [views/main-panel]
+  (reagent/render [view-core/main-panel]
                   (.getElementById js/document "app")))
 
 (defn ^:export init [] 

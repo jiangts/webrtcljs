@@ -1,9 +1,10 @@
 (defproject rtc "0.1.0-SNAPSHOT"
-  :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-3211"]
-                 [reagent "0.5.0"]
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/clojurescript "1.7.107"]
+                 [reagent "0.5.1"]
                  [re-frame "0.4.1"]
-                 [secretary "1.2.3"]]
+                 [secretary "1.2.3"]
+                 [prismatic/schema "1.0.3"]]
 
   :source-paths ["src/clj"]
 
@@ -12,11 +13,12 @@
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target" 
                                     "test/js" ]
-  
-  :cljsbuild {:builds [{:id "dev"
-                        :source-paths ["src/cljs"]
 
-                        :figwheel {:on-jsload "rtc.core/mount-root"}
+  :cljsbuild {:builds [{:id "dev"
+                        :source-paths ["src"]
+
+                        :figwheel {:on-jsload "rtc.core/mount-root"
+                                   :css-dirs ["resources/public/css"]}
 
                         :compiler {:main rtc.core
                                    :output-to "resources/public/js/compiled/app.js"
@@ -33,8 +35,9 @@
                                    :warnings {:single-segment-namespace false}}}
 
                        {:id "min"
-                        :source-paths ["src/cljs"]
+                        :source-paths ["src"]
                         :compiler {:main rtc.core
                                    :output-to "resources/public/js/compiled/app.js"
                                    :optimizations :advanced
+                                   :closure-defines {"goog.DEBUG" false}
                                    :pretty-print false}}]})
