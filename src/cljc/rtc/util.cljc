@@ -1,4 +1,5 @@
-(ns rtc.util)
+(ns rtc.util
+  (:require [fipp.edn :refer (pprint)]))
 
 (defmacro dev "Only include body s-exprs in development mode"
   [& body]
@@ -9,6 +10,21 @@
     (defn p "Prints given arguments, and then returns the last one"
       [& values]
       (.log js/console (apply pr-str values))
+      (last values)))
+
+#?(:cljs 
+    (defn pp "Same as p but pretty"
+      [& values]
+      (.log js/console (apply pprint values))
+      (last values)))
+
+#?(:cljs 
+    (defn pt "Same as p, but prepends a timestamp"
+      [& values]
+      (.log js/console (apply pr-str (concat [(-> js/performance
+                                                  .now
+                                                  (/ 1000)
+                                                  (.toFixed 3))] values)))
       (last values)))
 
 #?(:cljs 

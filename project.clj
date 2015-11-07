@@ -4,7 +4,8 @@
                  [reagent "0.5.1"]
                  [re-frame "0.4.1"]
                  [secretary "1.2.3"]
-                 [prismatic/schema "1.0.3"]]
+                 [prismatic/schema "1.0.3"]
+                 [fipp "0.6.3"]]
 
   :source-paths ["src/clj"]
 
@@ -15,7 +16,7 @@
                                     "test/js" ]
 
   :cljsbuild {:builds [{:id "dev"
-                        :source-paths ["src"]
+                        :source-paths ["src/cljs" "src/cljc"]
 
                         :figwheel {:on-jsload "rtc.core/mount-root"
                                    :css-dirs ["resources/public/css"]}

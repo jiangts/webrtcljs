@@ -25,11 +25,7 @@
  (fn [db _]
    (reaction (get-in @db [:rtc :media :stream]))))
 
-(register-sub
- :remote-media-url
- (fn [db _]
-   (reaction (get-in @db [:rtc :peer :remote :stream-url]))))
-
+;; peer connections
 (register-sub
  :local-peer
  (fn [db _]
@@ -40,3 +36,19 @@
  (fn [db _]
    (reaction (get-in @db [:rtc :peer :remote :connection]))))
 
+;; peer media
+(register-sub
+ :remote-media-url
+ (fn [db _]
+   (reaction (get-in @db [:rtc :peer :remote :stream-url]))))
+
+;; data channels
+(register-sub
+  :channel-received-data
+  (fn [db _]
+    (reaction (get-in @db [:rtc :peer :remote :channel-data]))))
+
+(register-sub
+  :send-channel-state
+  (fn [db _]
+    (reaction (get-in @db [:rtc :peer :local :channel-state]))))

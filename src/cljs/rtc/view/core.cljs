@@ -1,6 +1,7 @@
 (ns rtc.view.core
     (:require [re-frame.core :as re-frame]
               [rtc.view.video :as video]
+              [rtc.view.chat :as chat]
               [rtc.util :as util]))
 
 ;; --------------------
@@ -11,7 +12,11 @@
        [:div [:a {:href "#/about"} "go to About Page"]]
        [video/frame]    
        [video/remote-frame]
-       [video/controls]])))
+       [video/controls]
+       [:button {:on-click (fn [] 
+                             (re-frame/dispatch [:send-channel-state-change])
+                             (re-frame/dispatch [:receive-channel-state-change]))} "test"]
+       [chat/frame]])))
 
 (defn about-panel []
   (fn []
