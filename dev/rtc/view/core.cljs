@@ -10,10 +10,10 @@
     (fn []
       [:div (str "Hello from " @name ". This is the Home Page.")
        [:div [:a {:href "#/about"} "go to About Page"]]
-       [video/frame]    
+       [video/frame]
        [video/remote-frame]
        [video/controls]
-       [:button {:on-click (fn [] 
+       [:button {:on-click (fn []
                              (re-frame/dispatch [:send-channel-state-change])
                              (re-frame/dispatch [:receive-channel-state-change]))} "test"]
        [chat/frame]])))

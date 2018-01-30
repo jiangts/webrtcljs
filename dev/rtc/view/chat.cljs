@@ -4,7 +4,7 @@
 
 (defn frame []
   [:div
-   [:textarea {:value "troll"}] 
+   [:textarea {:value "troll"}]
    [:textarea {:value ""}]
    [:button {:on-click #(dispatch [:send-data "hello"])} "send"]])
 
