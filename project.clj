@@ -4,6 +4,7 @@
                  [reagent "0.7.0"]
                  [re-frame "0.10.4"]
                  [secretary "1.2.3"]
+                 [enlive "1.1.6"]
                  [fipp "0.6.3"]]
 
   :source-paths ["src/clj"]
